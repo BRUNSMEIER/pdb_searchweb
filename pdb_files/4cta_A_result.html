@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="title" content="NsitePred">
+    <meta name="description" content="NsitePred - web server from Biomine lab">
+    <meta name="author" content="Ke Chen, Marcin Mizianty, Lukasz Kurgan">
+    <meta name="keywords" content="Lukasz Kurgan, Virginia Commonwealth University, Richmond, Bioinformatics, Computational Biology, Proteomics, Genomics, Intrinsic Disorder, Genome, Proteome, Structural Protein-Drug Interactions, Protein-Ligand, Structure, Protein, RNA, miRNA">
+
+    <title>NsitePred</title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/custom.min.css">
+    <link rel="stylesheet" href="../biomine.css">
+
+    <script src="../functions.js"></script>
+
+
+
+<!--      <script src="http://code.jquery.com/jquery-1.4.2.js"></script>  -->
+<!-- the above was replaced for new jquery version below  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
+
+
+
+    <script type="text/javascript">
+      function download_to_textbox(url, el) {
+        $.get(url, null, function(data) {
+                           el.val(data);
+                         }, "text");
+      }
+
+      $(function() {
+        $('#Example').click(function() {
+          form1.seq.disabled = false;
+          download_to_textbox("./examples.fasta", $("textarea[name='seq']"));
+        });
+      });
+    </script>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-5418207-3']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h1>NsitePred - predictor of nucleotide-binding site</h1>
+          <p class="menu">
+            <a href="#References">References</a> |
+            <a href="#Materials">Materials</a> |
+            <a href="#Acknowledgments">Acknowledgments</a> |
+            <a target="_blank" href="http://biomine.cs.vcu.edu/Disclaimer.html">Disclaimer</a> |
+            <a target="_blank" href="http://biomine.cs.vcu.edu">Biomine</a>
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h2>NsitePred webserver</h2>
+          <p>The server is designed for sequence-based prediction of binding residues for ATP, ADP, AMP, GDP, and GTP.</p>
+
+          <div class="well">
+            <form name="form1" class="form-horizontal" target="_blank" action="../biomine.php?name=NsitePred" method="post">
+              <p class="def">Please follow the three steps below to make predictions:</p>
+
+              <h3>1. Copy and paste protein sequence(s) into text area</h3>
+              <p class="def">
+                Server accepts up to 5 (<a target="_blank" href="http://en.wikipedia.org/wiki/Fasta_format">FASTA formated</a>) protein sequences.
+                Please enter each protein in a new line in the following text field:
+              </p>
+
+              <textarea rows="10" name="seq" ></textarea>
+              <input class="btn" type="button" id="Example" value="Example" >
+              <input class="btn" type="button" value="Reset sequence(s)" onclick="form1.seq.disabled=false; form1.seq.value='';">
+
+              <h3>2. Provide your e-mail address (required)</h3>
+              <p class="def">Please provide your e-mail address to be notified when results are ready.</p>
+              <input type="email" name="email1" value="">
+
+              <h3>3. Predict:</h3>
+              <p class="def">Click button to launch prediction.</p>
+              <input class="btn" type="submit" name="Button1" value="Run NsitePred" onclick="
+                if (validateEmail(email1.value)==false) {
+                  alert('Please enter a valid email address.');
+                  return false;
+                }
+                else if (checkform(5, form1, email1)==true) {
+                  this.form.submit();
+                  form1.seq.disabled = false;
+                  form1.seq.value='';
+                }
+                return (false);">
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h2 id="References">References</h2>
+          <p>Upon the usage the users are requested to use the following citation:</p>
+          <ul>
+            <li>
+              <a target="_blank" href="https://academic.oup.com/bioinformatics/article/28/3/331/188242">
+                Chen K, Mizianty MJ, Kurgan LA, 2012. 
+                Prediction and analysis of nucleotide-binding residues using sequence and sequence-derived structural descriptors. 
+                Bioinformatics, 28(3): 331-341.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h2 id="Materials">Materials</h2>
+          <ul>
+            <li><a target="_blank" href="./NsitePred-datasets.zip">Datasets</a> - Datasets used to design and evaluate NsitePred (description inside zip file).</li>
+            <li><a target="_blank" href="./supplement.pdf">Supplement</a> - supplementary information.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h2 id="Acknowledgments">Acknowledgments</h2>
+          <p>We acknowledge with thanks the following software used as a part of this server</p>
+          <ul>
+            <li><a target="_blank" href="http://bioinf.cs.ucl.ac.uk/psipred/">PSIPRED</a></li>
+            <li><a target="_blank" href="http://www.ncbi.nlm.nih.gov/blast/Blast.cgi">PSI-BLAST</a></li>
+            <li><a target="_blank" href="http://sparks.informatics.iupui.edu/RealSPINE3.0/realspine3.0.html">Real-SPINE</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <footer></footer>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
