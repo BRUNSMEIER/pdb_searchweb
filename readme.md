@@ -1,0 +1,1 @@
+To use the download script, just put the fasta sequence in the representatives.csv file, for instance, add another row and input 7uldA

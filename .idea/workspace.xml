@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e8baf49-47d3-4e99-a4a1-0e2ebbea653d" name="Changes" comment="debuggin and made the function work">
+    <list default="true" id="4e8baf49-47d3-4e99-a4a1-0e2ebbea653d" name="Changes" comment="adding clearer println commands">
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integrate.py" beforeDir="false" afterPath="$PROJECT_DIR$/integrate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv_input.py" beforeDir="false" afterPath="$PROJECT_DIR$/csv_input.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/representatives.csv" beforeDir="false" afterPath="$PROJECT_DIR$/representatives.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +59,7 @@
     &quot;last_opened_file_path&quot;: &quot;D:/phas0077&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.integrate">
+  <component name="RunManager" selected="Python.csv_input">
     <configuration name="csv_input" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="phas0077" />
       <option name="ENV_FILES" value="" />
@@ -170,8 +172,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.integrate" />
         <item itemvalue="Python.csv_input" />
+        <item itemvalue="Python.integrate" />
         <item itemvalue="Python.search" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.request" />
@@ -218,13 +220,22 @@
       <option name="project" value="LOCAL" />
       <updated>1737633107134</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="adding clearer println commands">
+      <option name="closed" value="true" />
+      <created>1737635638785</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1737635638785</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="init 2 added example fasta files" />
     <MESSAGE value="debuggin and made the function work" />
-    <option name="LAST_COMMIT_MESSAGE" value="debuggin and made the function work" />
+    <MESSAGE value="adding clearer println commands" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding clearer println commands" />
   </component>
 </project>

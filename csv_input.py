@@ -23,7 +23,10 @@ try:
     with open(csv_file, "r") as file:
         reader = csv.DictReader(file)
         for row in reader:
-            representatives.append((row["pdb_id"].lower(), row["chain"].upper()))
+            pdb_chain_combined = row["pdb_id"]
+            pdb_id = pdb_chain_combined[:4].lower()  # First 4 characters for the PDB ID
+            chain_id = pdb_chain_combined[4:].upper()  # Remaining characters for the chain ID
+            representatives.append((pdb_id, chain_id))
 except FileNotFoundError:
     print(f"Error: CSV file '{csv_file}' not found.")
     exit(1)
