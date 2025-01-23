@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e8baf49-47d3-4e99-a4a1-0e2ebbea653d" name="Changes" comment="init">
+    <list default="true" id="4e8baf49-47d3-4e99-a4a1-0e2ebbea653d" name="Changes" comment="init 2 added example fasta files">
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv_input.py" beforeDir="false" afterPath="$PROJECT_DIR$/csv_input.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integrate.py" beforeDir="false" afterPath="$PROJECT_DIR$/integrate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdb_files/2x14_A.fasta" beforeDir="false" afterPath="$PROJECT_DIR$/pdb_files/2x14_A.fasta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdb_files/4cta_A.fasta" beforeDir="false" afterPath="$PROJECT_DIR$/pdb_files/4cta_A.fasta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdb_files/6ksh_D.fasta" beforeDir="false" afterPath="$PROJECT_DIR$/pdb_files/6ksh_D.fasta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +29,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;BRUNSMEIER&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/BRUNSMEIER/pdb_searchweb&quot;,
+    &quot;accountId&quot;: &quot;738517c6-2399-4962-b39b-d8f87804f00f&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -34,37 +53,17 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Python.analyze.executor&quot;: &quot;Run&quot;,
+    &quot;Python.csv_input.executor&quot;: &quot;Run&quot;,
     &quot;Python.integrate.executor&quot;: &quot;Run&quot;,
     &quot;Python.request.executor&quot;: &quot;Run&quot;,
     &quot;Python.search.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/phas0077&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.csv_input">
-    <configuration name="analyze" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="phas0077" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analyze.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.integrate">
     <configuration name="csv_input" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="phas0077" />
       <option name="ENV_FILES" value="" />
@@ -153,13 +152,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="phas0077" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.csv_input" />
         <item itemvalue="Python.integrate" />
-        <item itemvalue="Python.request" />
-        <item itemvalue="Python.analyze" />
         <item itemvalue="Python.search" />
+        <item itemvalue="Python.csv_input" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.request" />
       </list>
     </recent_temporary>
   </component>
@@ -187,11 +208,20 @@
       <option name="project" value="LOCAL" />
       <updated>1737581478960</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="init 2 added example fasta files">
+      <option name="closed" value="true" />
+      <created>1737581818853</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1737581818853</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="init 2 added example fasta files" />
+    <option name="LAST_COMMIT_MESSAGE" value="init 2 added example fasta files" />
   </component>
 </project>

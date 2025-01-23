@@ -1,69 +1,66 @@
 import os
-import gzip
-from Bio.PDB import PDBList
-from Bio.PDB.MMCIFParser import MMCIFParser
+from Bio.PDB import MMCIFParser
 from Bio.SeqRecord import SeqRecord
 from Bio.Seq import Seq
 from Bio.SeqIO import FastaIO
+from Bio.Data.IUPACData import protein_letters_3to1
 
-# Use the HTTPS server to avoid old FTP mirror issues
-pdb_list = PDBList(server="https://files.rcsb.org/")
-
+# Define output folder
 base_output_dir = os.path.abspath("pdb_files")
 os.makedirs(base_output_dir, exist_ok=True)
 
+# Representative PDB sequences
 representatives = ["6KSHD", "4ctaA", "2x14A"]
 
 for pdb_code in representatives:
-    pdb_id = pdb_code[:4].lower()  # e.g. "6ksh", "4cta", "2x14"
-    chain = pdb_code[4].upper()    # e.g. "D", "A", "A"
+    pdb_id = pdb_code[:4].lower()  # Extract PDB ID
+    chain_id = pdb_code[4].upper()  # Extract chain ID
 
-    try:
-        pdb_file = pdb_list.retrieve_pdb_file(
-            pdb_id,
-            file_format="mmCif",
-            pdir=base_output_dir,
-            overwrite=True
-        )
-        print(f"Biopython returned path: {pdb_file}")
-    except Exception as e:
-        print(f"Error downloading {pdb_id}: {e}")
+    # Determine CIF file path
+    cif_file = os.path.join(base_output_dir, f"{pdb_id}.cif")
+    if not os.path.exists(cif_file):
+        print(f"File not found: {cif_file}")
         continue
 
-    # Check if the file or gz version exists
-    if not os.path.exists(pdb_file):
-        if os.path.exists(pdb_file + ".gz"):
-            pdb_file += ".gz"
-        else:
-            print(f"File not found after download: {pdb_file}")
-            continue
-
-    # Parse mmCIF
+    # Parse CIF file
     parser = MMCIFParser(QUIET=True)
     try:
-        if pdb_file.endswith(".gz"):
-            with gzip.open(pdb_file, "rt") as handle:
-                structure = parser.get_structure(pdb_id, handle)
-        else:
-            structure = parser.get_structure(pdb_id, pdb_file)
-
-        # Extract chain sequence
-        for model in structure:
-            for chain_obj in model:
-                if chain_obj.id == chain:
-                    sequence = "".join(
-                        residue.resname
-                        for residue in chain_obj.get_residues()
-                        if residue.id[0] == " "
-                    )
-                    record = SeqRecord(Seq(sequence),
-                                       id=f"{pdb_id}_{chain}",
-                                       description="")
-                    fasta_file = os.path.join(base_output_dir,
-                                              f"{pdb_id}_{chain}.fasta")
-                    with open(fasta_file, "w") as out_fasta:
-                        FastaIO.FastaWriter(out_fasta).write_record(record)
-                    print(f"Saved FASTA file: {fasta_file}")
-
+        structure = parser.get_structure(pdb_id, cif_file)
     except Exception as e:
-        print(f"Error processing {pdb_id}: {e}")
+        print(f"Error parsing CIF file {cif_file}: {e}")
+        continue
+
+    # Extract sequence from the chain
+    sequence = []
+    found_chain = False
+    for model in structure:
+        for chain in model:
+            if chain.id == chain_id:
+                found_chain = True
+                print(f"Processing chain {chain.id}")
+                for residue in chain:
+                    if residue.id[0] == " ":  # Exclude non-amino acids
+                        residue_name = residue.resname.strip().capitalize()  # Convert to capitalize format
+                        try:
+                            if residue_name in protein_letters_3to1:
+                                sequence.append(protein_letters_3to1[residue_name])
+                            else:
+                                print(f"Skipping unknown residue: {residue_name}")
+                        except KeyError:
+                            print(f"Skipping unknown residue: {residue_name}")
+                break
+
+    if not found_chain:
+        print(f"Chain {chain_id} not found in PDB {pdb_id}")
+        continue
+
+    # Save sequence as FASTA file
+    if sequence:
+        fasta_sequence = "".join(sequence)
+        fasta_file = os.path.join(base_output_dir, f"{pdb_id}_{chain_id}.fasta")
+        record = SeqRecord(Seq(fasta_sequence), id=f"{pdb_id}_{chain_id}", description="")
+        with open(fasta_file, "w") as f:
+            FastaIO.FastaWriter(f).write_record(record)
+        print(f"FASTA file saved: {fasta_file}")
+    else:
+        print(f"Sequence for {pdb_id}_{chain_id} is empty, no FASTA file saved")

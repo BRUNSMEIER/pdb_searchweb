@@ -5,26 +5,42 @@ import requests
 base_dir = os.path.abspath("pdb_files")
 fasta_files = [os.path.join(base_dir, f) for f in os.listdir(base_dir) if f.endswith(".fasta")]
 
-# URL for form submission
-url = "http://biomine.cs.vcu.edu/servers/NsitePred/"
+# URL for form submission (action URL from the form)
+url = "http://biomine.cs.vcu.edu/servers/biomine.php?name=NsitePred"
 
 # Define your email address
 your_email = "schonnbiukmit1@gmail.com"  # Replace this with your actual email address
 
-# Function to submit the fasta files
+# Function to submit the form
 def submit_fasta(file_path, email):
     with open(file_path, 'r') as f:
         fasta_content = f.read()
 
-    # Submit the form with both the sequence and the email
-    response = requests.post(url, data={"sequence": fasta_content, "email": email})
+    # Form data to simulate form submission
+    form_data = {
+        "seq": fasta_content,  # Input field for sequence
+        "email1": email,       # Input field for email
+    }
 
+    # Send the POST request
+    response = requests.post(url, data=form_data, allow_redirects=True)
+
+    # Check the response
     if response.status_code == 200:
-        print(f"Submission successful for {file_path}. Check your email for results.")
+        if "Your submission is now being processed" in response.text:
+            print(f"Submission successful for {file_path}. Submission is being processed.")
+        # else:
+        #     print(f"Submission successful for {file_path}, but unexpected response:")
+        #     print(response.text[:500])  # Print the first 500 characters for debugging
+    elif response.status_code in [301, 302]:
+        redirect_url = response.headers.get("Location")
+        print(f"Submission successful for {file_path}. Redirected to: {redirect_url}")
     else:
         print(f"Failed to process {file_path}. Status code: {response.status_code}")
+        print(f"Response headers: {response.headers}")
+        print(f"Response content: {response.text[:500]}")  # Print the first 500 characters for debugging
 
-# Process each fasta file
+# Process each FASTA file
 for fasta_file in fasta_files:
     print(f"Processing {fasta_file}...")
     submit_fasta(fasta_file, your_email)
