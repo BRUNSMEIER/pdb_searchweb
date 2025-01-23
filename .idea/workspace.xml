@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e8baf49-47d3-4e99-a4a1-0e2ebbea653d" name="Changes" comment="init 2 added example fasta files">
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+    <list default="true" id="4e8baf49-47d3-4e99-a4a1-0e2ebbea653d" name="Changes" comment="debuggin and made the function work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csv_input.py" beforeDir="false" afterPath="$PROJECT_DIR$/csv_input.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/integrate.py" beforeDir="false" afterPath="$PROJECT_DIR$/integrate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdb_files/2x14_A.fasta" beforeDir="false" afterPath="$PROJECT_DIR$/pdb_files/2x14_A.fasta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdb_files/4cta_A.fasta" beforeDir="false" afterPath="$PROJECT_DIR$/pdb_files/4cta_A.fasta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdb_files/6ksh_D.fasta" beforeDir="false" afterPath="$PROJECT_DIR$/pdb_files/6ksh_D.fasta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/search.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,8 +171,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.integrate" />
-        <item itemvalue="Python.search" />
         <item itemvalue="Python.csv_input" />
+        <item itemvalue="Python.search" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.request" />
       </list>
@@ -216,12 +210,21 @@
       <option name="project" value="LOCAL" />
       <updated>1737581818853</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="debuggin and made the function work">
+      <option name="closed" value="true" />
+      <created>1737633107134</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1737633107134</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="init 2 added example fasta files" />
-    <option name="LAST_COMMIT_MESSAGE" value="init 2 added example fasta files" />
+    <MESSAGE value="debuggin and made the function work" />
+    <option name="LAST_COMMIT_MESSAGE" value="debuggin and made the function work" />
   </component>
 </project>
