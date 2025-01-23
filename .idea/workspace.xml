@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e8baf49-47d3-4e99-a4a1-0e2ebbea653d" name="Changes" comment="adding clearer println commands">
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csv_input.py" beforeDir="false" afterPath="$PROJECT_DIR$/csv_input.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/representatives.csv" beforeDir="false" afterPath="$PROJECT_DIR$/representatives.csv" afterDir="false" />
+    <list default="true" id="4e8baf49-47d3-4e99-a4a1-0e2ebbea653d" name="Changes" comment="easier csv formatting">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737635638785</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="easier csv formatting">
+      <option name="closed" value="true" />
+      <created>1737636458424</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737636458424</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -236,6 +241,7 @@
     <MESSAGE value="init 2 added example fasta files" />
     <MESSAGE value="debuggin and made the function work" />
     <MESSAGE value="adding clearer println commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding clearer println commands" />
+    <MESSAGE value="easier csv formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="easier csv formatting" />
   </component>
 </project>
