@@ -1,1 +1,6 @@
 biopython==1.81
+
+beautifulsoup4~=4.12.3
+requests~=2.32.3
+numpy~=1.26.4
+mdtraj~=1.10.2

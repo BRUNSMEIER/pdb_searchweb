@@ -1,4 +1,5 @@
 import os
+import time
 import requests
 
 # Define directories
@@ -28,11 +29,10 @@ def submit_fasta(file_path, email):
     # Check the response
     if response.status_code == 200:
         print(f"Submission successful for {file_path}")
-        if "Your submission is now being processed" in response.text:
-            print(f"Submission successful for {file_path}. Submission is being processed.")
+        # if "Your submission is now being processed" in response.text:
+        print(f"Submission successful for {file_path}. Submission is being processed.")
         # else:
-        #     print(f"Submission successful for {file_path}")
-        #     print(response.text[:500])  # Print the first 500 characters for debugging
+        #     print(f"Submission for {file_path} succeeded, but processing confirmation not detected.")
     elif response.status_code in [301, 302]:
         redirect_url = response.headers.get("Location")
         print(f"Submission successful for {file_path}. Redirected to: {redirect_url}")
@@ -45,3 +45,4 @@ def submit_fasta(file_path, email):
 for fasta_file in fasta_files:
     print(f"Processing {fasta_file}...")
     submit_fasta(fasta_file, your_email)
+    time.sleep(7)  # Wait for 7 seconds between each submission
